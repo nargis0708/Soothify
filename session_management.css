@@ -1,0 +1,123 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f3faff; /* Light pastel blue */
+    margin: 0;
+    padding: 0;
+    color: #2a3d66; /* Darker blue */
+}
+
+h1 {
+    color: #205090;
+    font-size: 2rem;
+}
+
+p {
+    color: #4a6fa5;
+    font-size: 1rem;
+}
+
+/* Outer Container Styling */
+.container {
+    max-width: 700px; /* Defines the outer container's width */
+    width: 90%; /* Makes it responsive */
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Calendar Styling */
+.calendar-container {
+    width: 80%; /* Adjust width relative to the container */
+    max-width: 600px; /* Prevent it from getting too large */
+    margin: 20px auto; /* Center align */
+    padding: 15px;
+    background-color: #e6f3ff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+
+/* Time Slot Selection */
+#availability {
+    padding: 8px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #4a6fa5;
+}
+
+/* Button Styling */
+button {
+    background-color: #4a90e2;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #2a6bbf;
+    box-shadow: 0 6px 12px rgba(42, 107, 191, 0.4);
+}
+
+/* Highlight Selected Dates */
+.date-picker {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #4a6fa5;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Session Links Styles */
+.session-links {
+    margin-top: 20px;
+    display: none;
+}
+
+.link-container {
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 5px solid #6c63ff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.link-container a {
+    color: #6c63ff;
+    text-decoration: none;
+}
+
+.link-container a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    h1 {
+        font-size: 1.8rem;
+    }
+    p {
+        font-size: 0.9rem;
+    }
+    button {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}

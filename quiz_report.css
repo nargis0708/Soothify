@@ -1,0 +1,151 @@
+/* Reset default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set up the body background */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Remove unwanted scrolling */
+}
+
+/* Main container for quiz result */
+.result-container {
+    background: linear-gradient(145deg, #e6f7ff, #ffffff);
+    border-radius: 15px;
+    padding: 40px;
+    width: 95%;
+    max-width: 1000px;
+    height: auto; /* Set height to auto to adjust based on content */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    gap: 20px;
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center-align text */
+    margin-top: 30px; /* Move the container up a bit */
+}
+
+/* Heading and description */
+h2 {
+    font-size: 2.8rem;
+    color: #222;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 1.3rem;
+    color: #444;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+/* Flex container to position table and chart side by side */
+.result-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    gap: 30px;
+}
+
+/* Style the results table */
+.result-table-container {
+    flex: 1; /* Allow table to resize proportionally */
+}
+
+.result-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.result-table th, .result-table td {
+    text-align: center;
+    vertical-align: middle; /* Center text vertically */
+    padding: 12px;
+    border: 1px solid #ddd;
+    font-size: 1.2rem;
+}
+
+.result-table th {
+    background-color: #0073e6;
+    color: #fff;
+    font-weight: bold;
+}
+
+.result-table td {
+    background-color: #f0f8ff;
+}
+
+/* Style the chart container */
+.chart-container {
+    flex: 1; /* Allow chart to resize proportionally */
+    text-align: center;
+}
+
+.chart-container canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Motivational Line Styling */
+.motivational-line {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #4CAF50;
+    font-weight: bold;
+    text-align: center;
+    max-width: 80%;
+    margin-bottom: 30px;
+    line-height: 1.4;
+}
+
+/* Action buttons below the container */
+.action-buttons {
+    position: absolute; /* Position buttons outside the container */
+    bottom: 60px; /* Bring buttons up closer to avoid overlap */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Spacing between buttons */
+}
+
+/* Action buttons styles */
+.action-buttons button {
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px; /* Curved buttons */
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s ease;
+}
+
+/* Button styles */
+.btn-appointment {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-home {
+    background-color: #FF5722;
+    color: white;
+}
+
+/* Hover effects for buttons */
+.action-buttons button:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}

@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+.admin-container {
+    width: 80%;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+th {
+    background: #007bff;
+    color: white;
+}
+
+tr.unread {
+    background: #ffeeba;
+}
+
+tr.read {
+    background: #d4edda;
+}
+
+button {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.mark-read {
+    background: #28a745;
+    color: white;
+}
+
+.delete-notif {
+    background: #dc3545;
+    color: white;
+}
+
+form {
+    margin-top: 20px;
+}

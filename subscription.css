@@ -1,0 +1,157 @@
+/* Add your CSS from earlier here */
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('./images/helping-up.jpg') no-repeat center center/cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: #333;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2.8rem;
+    color: #444;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    width: 90%;
+    max-width: 1200px;
+  }
+  
+  .card {
+    background: rgba(255, 255, 255, 0.6); /* Transparent background */
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    width: 300px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card h2 {
+    font-size: 2rem;
+    margin: 15px 0;
+    color: #0077ff;
+  }
+  
+  .card p {
+    color: #555;
+    margin: 10px 0;
+  }
+  
+  .price {
+    font-size: 2.5rem;
+    color: #28a745;
+    margin: 15px 0;
+  }
+  
+  .time-limit {
+    font-size: 1.2rem;
+    color: #ff5722;
+    margin: 10px 0;
+  }
+  
+  .button-group {
+    margin-top: 20px;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 5px;
+    background: #f0c7d1;
+    color: #333;
+    text-transform: uppercase;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+    border: 1px solid transparent;
+  }
+  
+  .btn:hover {
+    background: #ffc1d1;
+    border-color: #e098a6;
+  }
+  
+  .read-more {
+    background: #d1e8f0;
+  }
+  
+  .read-more:hover {
+    background: #bfe1f5;
+    border-color: #91c6dc;
+  }
+  
+  .feature-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+  
+  .feature-popup h3 {
+    margin: 0 0 10px;
+  }
+  
+  .feature-popup ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .feature-popup ul li {
+    margin: 10px 0;
+    text-align: left;
+  }
+  
+  .close-btn {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #f44336;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .close-btn:hover {
+    background: #d32f2f;
+  }
+  
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+  

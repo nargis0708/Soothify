@@ -1,0 +1,326 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body Styling */
+body {
+    display: flex;
+    height: 100vh;
+    background: #f7f9fc; /* Light pastel background */
+    overflow-x: hidden;
+}
+
+.content h1 {
+    text-align: center; /* Centers the text horizontally */
+    margin-bottom: 20px; /* Adds spacing below the text */
+    font-size: 2rem; /* Adjusts the font size */
+    color: #333333; /* Optional: Sets the text color */
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 380px;
+    background: #ffffff;
+    border-radius: 0 20px 20px 0;
+    box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: fixed;
+    height: 100%;
+    padding-top: 0;
+    overflow: hidden;
+}
+
+.sidebar.closed {
+    width: 80px;
+}
+
+/* Profile Section */
+.profile-section {
+    text-align: center;
+    padding: 50px 0;
+    background: #aec6cf; /* Pastel blue shade */
+    border-radius: 15px;
+}
+
+.profile-icon {
+    font-size: 120px;
+    color: #1e90ff;
+}
+
+.admin-text {
+    font-size: 22px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+
+/* Sidebar Menu */
+.sidebar ul {
+    list-style: none;
+    padding: 20px 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.sidebar ul li:hover {
+    background: #d4eaff; /* Light pastel blue */
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.sidebar ul li i {
+    font-size: 22px;
+    color: #6fa3ef;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Toggle Button */
+.toggle-btn {
+    position: absolute;
+    top: 20px;
+    left: 350px;
+    background: #1e90ff;
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    font-size: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+    background: #4682b4;
+}
+
+/* Logout Button */
+.logout-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff6b6b;
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: #e63946;
+}
+
+/* Main Content */
+.content {
+    margin-left: 380px;
+    padding: 20px;
+    width: calc(100% - 380px);
+    transition: all 0.3s ease;
+}
+
+.sidebar.closed ~ .content {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+}
+
+/* Dashboard Header */
+.dashboard-header {
+    margin-bottom: 20px;
+}
+
+.dashboard-header h1 {
+    font-size: 28px;
+    color: #333;
+}
+
+/* Cards Section */
+.card-container {
+    display: flex;
+    gap: 20px; /* Space between cards */
+    flex-wrap: nowrap; /* Keep cards in one row */
+    justify-content: space-between; /* Align cards evenly */
+    margin-bottom: 30px;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 0 0 30%; /* Cards take 30% width each */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Charts Section */
+.charts-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    flex-wrap: nowrap; /* Prevent wrapping to a new line */
+    overflow-x: auto; /* Enable horizontal scrolling if cards overflow */
+}
+
+.chart-card {
+    flex: 1 1 0; /* Allow cards to grow or shrink */
+    max-width: 35%; /* Ensure cards don't exceed 30% of the container */
+    min-width: 250px; /* Set a minimum width to prevent cards from shrinking too much */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; /* Adjust height based on your needs */
+}
+
+.chart-card canvas {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+/* Table Section */
+.table-container {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.table-container h2 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-container table thead {
+    background: #aec6cf; /* Pastel header */
+    color: #333;
+}
+
+.table-container table th, .table-container table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.table-container table tr:nth-child(even) {
+    background: #f7f9fc;
+}
+
+.table-container table tr:hover {
+    background: #d4eaff;
+}
+       /* Calendar Styling
+.calendar-container {
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+        gap: 10px;
+        background: #f8f9fa;
+        padding: 10px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: fit-content;
+        margin: 20px 0;
+    } */
+    .calendar-container {
+        display: flex;
+        justify-content: center; /* Centers the calendar horizontally */
+        align-items: center; /* Centers the calendar vertically if needed */
+        margin: 20px 0; /* Adds spacing above and below the calendar */
+        flex-direction: column; /* Stacks items vertically if there are multiple */
+    }
+
+    .calendar-container label {
+        font-weight: bold;
+        margin-bottom: 10px;
+        font-size: 1.2rem;
+        color: #333333;
+    }
+
+    .calendar-container input {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .chart-container {
+        flex-direction: column;
+    }
+
+    .toggle-btn {
+        left: 20px;
+    }
+
+    .logout-btn {
+        bottom: 50px;
+    }
+@media (max-width: 900px) {
+        .chart-card {
+            width: 100%; /* Stack vertically on small screens */
+        }
+    }
+}
