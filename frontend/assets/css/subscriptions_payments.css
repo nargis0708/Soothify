@@ -1,0 +1,192 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Background Styling */
+.background {
+    background: url('../images/community-support.jpg') no-repeat center center/cover;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Main Container (Holds Both Boxes) */
+.main-container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Centered Container */
+.container {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 500px;
+    max-width: 95%;
+}
+
+/* Heading */
+.container h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* Details Styling */
+.details {
+    font-size: 1.2rem;
+    line-height: 2;
+    color: #555;
+}
+
+.details p {
+    margin-bottom: 1rem;
+}
+
+.details strong {
+    color: #222;
+}
+
+/* Key Styling for Highlights */
+.details span {
+    color: #4caf50;
+    font-weight: bold;
+}
+
+/* Therapist Image */
+.therapist-image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.therapist-image-container img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 5px solid #4caf50;
+    object-fit: cover;
+}
+
+/* Motivation Text */
+.motivation {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #007BFF;
+    margin-top: 1rem;
+}
+
+/* Button Section with Background */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Increased space between buttons */
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(173, 216, 230, 0.3); /* Light pastel blue background */
+    border-radius: 12px;
+}
+
+/* Shared Button Styles */
+.journey-btn, .book-session-btn {
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Container - Now Below Main Content */
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Space between buttons */
+    margin-top: 40px; /* Adds spacing from the main container */
+    padding: 20px;
+    background: rgba(200, 230, 250, 0.3); /* Light pastel blue background */
+    border-radius: 12px;
+}
+
+/* Shared Button Styles */
+.journey-btn, .book-session-btn {
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Start Journey Button - Pastel Blue */
+.journey-btn {
+    background: linear-gradient(to right, #76c7ff, #5ca9ff);
+    color: white;
+}
+
+.journey-btn:hover {
+    background: linear-gradient(to right, #5ca9ff, #4a90e2);
+    transform: translateY(-2px);
+}
+
+/* Book Session Button - Pastel Peach */
+.book-session-btn {
+    background: linear-gradient(to right, #ffcc99, #ffb07c);
+    color: white;
+}
+
+.book-session-btn:hover {
+    background: linear-gradient(to right, #ffb07c, #e59460);
+    transform: translateY(-2px);
+}
+
+/* Mobile Responsive - Stack Buttons */
+@media (max-width: 768px) {
+    .button-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .journey-btn, .book-session-btn {
+        width: 80%;
+    }
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .main-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container {
+        width: 90%;
+    }
+}

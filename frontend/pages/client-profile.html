@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Profile</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Add the intl-tel-input CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.15/css/intlTelInput.min.css">
+    <link rel="stylesheet" href="../assets/css/client-profile.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Let Us Know More About You!</h1>
+        <form action="../../backend/php/client-profile.php" method="POST">
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" id="first_name" required>
+
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" id="last_name" required>
+
+            <label for="phone">Mobile Number:</label>
+            <input type="tel" name="phone" id="phone" placeholder="Enter your phone number" required>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="country">Country:</label>
+            <input type="text" name="country" id="country" required>
+
+            <label for="state">State:</label>
+            <input type="text" name="state" id="state" required>
+
+            <label for="city">City:</label>
+            <input type="text" name="city" id="city" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Add the intl-tel-input JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.15/js/intlTelInput.min.js"></script>
+    <script>
+        // Initialize the intl-tel-input on the phone input field
+        const phoneInput = document.querySelector("#phone");
+        const iti = window.intlTelInput(phoneInput, {
+            preferredCountries: ["us", "in", "gb"], // Default countries to show at the top
+            nationalMode: false, // Disable the national phone format
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.15/js/utils.js", // This is required for validation
+        });
+
+        // Hide the country dropdown until the input field is focused
+        phoneInput.addEventListener('focus', function () {
+            setTimeout(function () {
+                const countryList = document.querySelector('.iti__country-list');
+                countryList.style.display = 'block';
+            }, 200);
+        });
+
+        phoneInput.addEventListener('blur', function () {
+            setTimeout(function () {
+                const countryList = document.querySelector('.iti__country-list');
+                countryList.style.display = 'none';
+            }, 200);
+        });
+    </script>
+</body>
+</html>

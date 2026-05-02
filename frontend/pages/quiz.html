@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soothify Quiz</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="../assets/css/quiz.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="progress-container">
+            <div id="progress-bar" class="progress-bar"></div>
+        </div>
+        <h1>Soothify Wellness Quiz</h1>
+        <p class="intro-text">Take a moment for yourself. Answer these questions honestly, and we'll help you understand your emotional well-being.</p>
+        <form id="quiz-form" action="../../backend/php/process_quiz.php" method="POST" onsubmit="return validateForm()">
+            <!-- Questions dynamically rendered with JavaScript -->
+        </form>
+    </div>
+
+    <script>
+        const questions = [
+            "How often do you feel stressed?",
+            "Do you find it hard to relax?",
+            "How often do you feel emotionally drained?",
+            "Do you feel overwhelmed by daily tasks?",
+            "How often do you feel anxious or worried?",
+            "Do you have trouble falling asleep due to stress?",
+            "How often do you feel a lack of energy?",
+            "Do you feel disconnected from your emotions?",
+            "Do you find it difficult to focus on tasks?",
+            "How often do you feel hopeless about the future?"
+        ];
+
+        function renderQuestions() {
+            const quizForm = document.getElementById('quiz-form');
+            questions.forEach((question, index) => {
+                const questionNumber = index + 1;
+                const questionDiv = document.createElement('div');
+                questionDiv.classList.add('question', 'fade-in');
+                questionDiv.id = `question${questionNumber}`;
+                questionDiv.style.display = index === 0 ? 'block' : 'none';
+
+                const label = document.createElement('label');
+                label.htmlFor = `question${questionNumber}`;
+                label.innerText = `${questionNumber}. ${question}`;
+
+                const optionsDiv = document.createElement('div');
+                optionsDiv.classList.add('options');
+
+                ["Always", "Often", "Sometimes", "Rarely"].forEach(option => {
+                    const optionLabel = document.createElement('label');
+                    const optionInput = document.createElement('input');
+                    optionInput.type = 'radio';
+                    optionInput.name = `question${questionNumber}`;
+                    optionInput.value = option;
+                    optionInput.required = true;
+                    optionInput.onclick = () => enableNextButton(questionNumber); // Enable next button on click
+                    optionLabel.appendChild(optionInput);
+                    optionLabel.appendChild(document.createTextNode(option));
+                    optionsDiv.appendChild(optionLabel);
+                });
+
+                const btnContainer = document.createElement('div');
+                btnContainer.classList.add('btn-container');
+
+                // Back button for all except the first question
+                if (index > 0) {
+                    const backButton = document.createElement('button');
+                    backButton.type = 'button';
+                    backButton.classList.add('btn-back');
+                    backButton.innerText = 'Back';
+                    backButton.onclick = () => previousQuestion(questionNumber);
+                    btnContainer.appendChild(backButton);
+                }
+
+                // Next button logic
+                const nextButton = document.createElement('button');
+                nextButton.type = 'button';
+                nextButton.classList.add('btn-next');
+                nextButton.innerText = 'Next';
+                nextButton.disabled = true; // Disable initially
+                nextButton.onclick = () => nextQuestion(questionNumber);
+                btnContainer.appendChild(nextButton);
+
+                // Submit button for the last question
+                if (index === questions.length - 1) {
+                    const submitButton = document.createElement('button');
+                    submitButton.type = 'submit';
+                    submitButton.classList.add('btn-submit');
+                    submitButton.innerText = 'Submit';
+                    btnContainer.appendChild(submitButton);
+                }
+
+                questionDiv.appendChild(label);
+                questionDiv.appendChild(optionsDiv);
+                questionDiv.appendChild(btnContainer);
+                quizForm.appendChild(questionDiv);
+            });
+        }
+
+        function nextQuestion(questionNumber) {
+            const currentQuestion = document.getElementById(`question${questionNumber}`);
+            const nextQuestion = document.getElementById(`question${questionNumber + 1}`);
+            currentQuestion.style.display = 'none';
+            if (nextQuestion) {
+                nextQuestion.style.display = 'block';
+                updateProgress(questionNumber + 1);
+            }
+        }
+
+        function previousQuestion(questionNumber) {
+            const currentQuestion = document.getElementById(`question${questionNumber}`);
+            const previousQuestion = document.getElementById(`question${questionNumber - 1}`);
+            currentQuestion.style.display = 'none';
+            if (previousQuestion) {
+                previousQuestion.style.display = 'block';
+                updateProgress(questionNumber - 1);
+            }
+        }
+
+        function enableNextButton(questionNumber) {
+            const nextButton = document.querySelector(`#question${questionNumber} .btn-next`);
+            nextButton.disabled = false; // Enable Next button once an option is selected
+        }
+
+        function updateProgress(currentQuestion) {
+            const progressBar = document.getElementById('progress-bar');
+            const progress = (currentQuestion / questions.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        function validateForm() {
+            const radios = document.querySelectorAll('input[type="radio"]:checked');
+            if (radios.length < questions.length) {
+                alert("Please answer all questions before submitting.");
+                return false;
+            }
+            return true;
+        }
+
+        renderQuestions();
+    </script>
+</body>
+</html>

@@ -1,0 +1,346 @@
+<!-- quiz.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soothify Quiz</title>
+    <link rel="stylesheet" href="../assets/css/get-started.css">
+</head>
+
+<body>
+    <video id="background-video" autoplay muted loop>
+        <source id="video-source" src="../assets/videos/video1.mp4" type="video/mp4">
+    </video>
+    <div class="quiz-container">
+        <h1>Soothify Therapy Quiz</h1>
+        <form id="quizForm" action="../../backend/php/get-started.php" method="POST">
+            <div class="section" id="section1">
+                <h2>Section 1: Personal Information</h2>
+                <label>1. What is your relationship status?</label>
+                <select name="q1" required>
+                    <option value="none" selected>---</option>
+                    <option value="single">Single</option>
+                    <option value="in_relationship">In a relationship</option>
+                    <option value="married">Married</option>
+                    <option value="divorced">Divorced</option>
+                    <option value="widowed">Widowed</option>
+                </select>
+
+                <label>2. Which country do you live in?</label>
+                <select name="q2" required>
+                    <option value="none" selected>---</option>
+                    <option value="usa">United States</option>
+                    <option value="canada">Canada</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="australia">Australia</option>
+                    <option value="india">India</option>
+                    <option value="germany">Germany</option>
+                    <option value="france">France</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label>3. Do you consider yourself to be religious or spiritual? If yes, which one of these do you
+                    identify with?</label>
+                <select name="q3" required>
+                    <option value="none" selected>---</option>
+                    <option value="none">None</option>
+                    <option value="christian">Christian</option>
+                    <option value="muslim">Muslim</option>
+                    <option value="hindu">Hindu</option>
+                    <option value="buddhist">Buddhist</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label>4. What gender do you identify with?</label>
+                <select name="q4" required>
+                    <option value="none" selected>---</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="non_binary">Non-binary</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label>5. What led you to Soothify today?</label>
+                <select name="q5" required>
+                    <option value="none" selected>---</option>
+                    <option value="stress">I am feeling stressed</option>
+                    <option value="anxiety">I am feeling anxious</option>
+                    <option value="relationship">I am facing relationship issues</option>
+                    <option value="mental_health">I want to improve my mental health</option>
+                    <option value="other">Other</option>
+                </select>
+                <button type="button" onclick="nextSection(1)">Next</button>
+            </div>
+
+            <div class="quote" id="quote1">"Believe in yourself. Every journey starts with a single step."</div>
+
+            <div class="section" id="section2">
+                <h2>Section 2: Emotional Well-being</h2>
+                <label>6. How often do you feel lonely?</label>
+                <select name="q6" required>
+                    <option value="none" selected>---</option>
+                    <option value="rarely">Rarely</option>
+                    <option value="sometimes">Sometimes</option>
+                    <option value="often">Often</option>
+                </select>
+                <label>7. Do you experience mood swings?</label>
+                <select name="q7" required>
+                    <option value="none" selected>---</option>
+                    <option value="never">Never</option>
+                    <option value="sometimes">Sometimes</option>
+                    <option value="frequently">Frequently</option>
+                </select>
+                <label>8. How do you handle conflicts?</label>
+                <select name="q8" required>
+                    <option value="none" selected>---</option>
+                    <option value="calmly">Calmly</option>
+                    <option value="aggressively">Aggressively</option>
+                    <option value="avoid">Avoid them</option>
+                </select>
+                <label>9. Do you find it easy to express emotions?</label>
+                <select name="q9" required>
+                    <option value="none" selected>---</option>
+                    <option value="yes">Yes</option>
+                    <option value="sometimes">Sometimes</option>
+                    <option value="no">No</option>
+                </select>
+                <label>10. How connected do you feel to friends and family?</label>
+                <select name="q10" required>
+                    <option value="none" selected>---</option>
+                    <option value="very">Very</option>
+                    <option value="somewhat">Somewhat</option>
+                    <option value="not at all">Not at all</option>
+                </select>
+                <button type="button" onclick="nextSection(2)">Next</button>
+            </div>
+
+            <div class="quote" id="quote2">"You are stronger than you think. Keep going."</div>
+
+            <div class="section" id="section3">
+                <h2>Section 3: Physical Health</h2>
+                <label>11. How often do you exercise?</label>
+                <select name="q11" required>
+                    <option value="none" selected>---</option>
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="rarely">Rarely</option>
+                </select>
+                <label>12. Do you have a balanced diet?</label>
+                <select name="q12" required>
+                    <option value="none" selected>---</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                    <option value="sometimes">Sometimes</option>
+                </select>
+                <label>13. Do you experience fatigue frequently?</label>
+                <select name="q13" required>
+                    <option value="none" selected>---</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                    <option value="sometimes">Sometimes</option>
+                </select>
+                <label>14. How often do you get a medical check-up?</label>
+                <select name="q14" required>
+                    <option value="none" selected>---</option>
+                    <option value="regularly">Regularly</option>
+                    <option value="occasionally">Occasionally</option>
+                    <option value="never">Never</option>
+                </select>
+                <label>15. Do you feel physically healthy?</label>
+                <select name="q15" required>
+                    <option value="none" selected>---</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                    <option value="not sure">Not sure</option>
+                </select>
+                <button type="button" onclick="nextSection(3)">Next</button>
+            </div>
+
+            <div class="quote" id="quote3">"Health is wealth. Take care of your body."</div>
+
+            <div class="section" id="section4">
+                <h2>Section 4: Work and Career</h2>
+                <label>16. How satisfied are you with your current job?</label>
+                <select name="q16" required>
+                    <option value="none" selected>---</option>
+                    <option value="very">Very satisfied</option>
+                    <option value="neutral">Neutral</option>
+                    <option value="dissatisfied">Dissatisfied</option>
+                </select>
+                <label>17. Do you feel motivated at work?</label>
+                <select name="q17" required>
+                    <option value="none" selected>---</option>
+                    <option value="yes">Yes</option>
+                    <option value="sometimes">Sometimes</option>
+                    <option value="no">No</option>
+                </select>
+                <label>18. How often do you experience work-related stress?</label>
+                <select name="q18" required>
+                    <option value="none" selected>---</option>
+                    <option value="rarely">Rarely</option>
+                    <option value="sometimes">Sometimes</option>
+                    <option value="often">Often</option>
+                </select>
+                <label>19. Do you feel your work-life balance is adequate?</label>
+                <select name="q19" required>
+                    <option value="none" selected>---</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                <label>20. Do you feel appreciated at work?</label>
+                <select name="q20" required>
+                    <option value="none" selected>---</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                    <option value="sometimes">Sometimes</option>
+                </select>
+                <button type="button" onclick="nextSection(4)">Next</button>
+            </div>
+
+            <div class="quote" id="quote4">"Success is the sum of small efforts, repeated day in and day out."</div>
+
+            <div class="section" id="section5">
+                <h2>Section 5: Personal Growth</h2>
+                <label>21. Do you set personal goals for yourself?</label>
+                <select name="q21" required>
+                    <option value="none" selected>---</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                <label>22. How often do you work on self-improvement?</label>
+                <select name="q22" required>
+                    <option value="none" selected>---</option>
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="rarely">Rarely</option>
+                </select>
+                <label>23. Do you seek feedback from others to improve?</label>
+                <select name="q23" required>
+                    <option value="none" selected>---</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                <label>24. How open are you to learning new things?</label>
+                <select name="q24" required>
+                    <option value="none" selected>---</option>
+                    <option value="very">Very open</option>
+                    <option value="somewhat">Somewhat open</option>
+                    <option value="not open">Not open</option>
+                </select>
+                <label>25. Do you feel you are growing as a person?</label>
+                <select name="q25" required>
+                    <option value="none" selected>---</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                <button type="submit" id="submitBtn">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <h2 class="popup-heading">Quick Insight</h2> <!-- Added heading -->
+
+            <p id="slide1" class="slide">Things are trending down and not going as you hoped.</p>
+            <div class="image-placeholder">
+                <img src="../assets/images/arrow1.png" alt="Trending down">
+            </div>
+
+            <p id="slide2" class="slide">If you continue on this same path for the same period...</p>
+            <div class="image-placeholder">
+                <img src="../assets/images/arrow2.png" alt="Continuing trend">
+            </div>
+
+            <p id="slide3" class="slide">We can help you change your path and trend up.</p>
+            <div class="image-placeholder">
+                <img src="../assets/images/arrow3.png" alt="Trending up">
+            </div>
+
+            <!-- Close Button -->
+            <button class="close-btn" onclick="closePopup()">Close</button>
+        </div>
+    </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Initially show only the first section
+        document.querySelectorAll('.section').forEach((section, index) => {
+            section.style.display = index === 0 ? 'block' : 'none';
+        });
+    
+        // Hide all quotes initially
+        document.querySelectorAll('.quote').forEach(quote => {
+            quote.style.display = 'none';
+        });
+    
+        // Hide submit button initially
+        document.getElementById("submitBtn").style.display = "none";
+    });
+    
+    // Video list for dynamic background change
+    const videoList = [
+        "../assets/videos/video1.mp4",  // Intro (Welcome)
+        "../assets/videos/video2.mp4",  // Section 2 (Stress)
+        "../assets/videos/video3.mp4",  // Section 3 (Anxiety)
+        "../assets/videos/video4.mp4",  // Section 4 (Coping)
+        "../assets/videos/video5.mp4"   // Section 5 (Therapy Goal)
+    ];
+    
+    function nextSection(currentSectionNumber) {
+        const currentSection = document.getElementById(`section${currentSectionNumber}`);
+        const nextSectionNumber = currentSectionNumber + 1;
+        const nextSection = document.getElementById(`section${nextSectionNumber}`);
+        const currentQuote = document.getElementById(`quote${currentSectionNumber}`);
+    
+        // Hide current section
+        currentSection.style.display = 'none';
+    
+        // Show quote temporarily before showing the next section
+        if (currentQuote) {
+            currentQuote.style.display = 'block';
+    
+            setTimeout(() => {
+                currentQuote.style.display = 'none';
+                if (nextSection) {
+                    nextSection.style.display = 'block';
+                }
+    
+                // Update background video dynamically
+                if (videoList[nextSectionNumber - 1]) {
+                    updateVideoBackground(videoList[nextSectionNumber - 1]);
+                }
+    
+                // Show submit button after the last section
+                if (nextSectionNumber === 5) {
+                    document.getElementById("submitBtn").style.display = "block";
+                }
+            }, 2000); // Show quote for 2 seconds
+        }
+    }
+    
+    function updateVideoBackground(videoSrc) {
+        const videoElement = document.getElementById("background-video");
+        const videoSource = document.getElementById("video-source");
+    
+        if (videoElement && videoSource) {
+            videoSource.src = videoSrc;
+            videoElement.load(); // Reload video to apply changes
+        }
+    }
+    
+    // Form submission handling
+    document.getElementById("quizForm").addEventListener("submit", function (event) {
+        console.log("Form data: ", Object.fromEntries(new FormData(this).entries()));
+    });
+    
+    // Close popup function
+    function closePopup() {
+        document.getElementById("popup").style.display = "none";
+    }
+</script>
+
+
+</body>
+
+</html>

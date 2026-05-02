@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../assets/css/book-appointment.css">
+  <title>Soothify - Appointment Booking</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <nav>
+    <a href="index.html" class="logo-container">
+      <img src="../assets/images/mental-health.png" alt="Soothify Logo" />
+      <span class="logo-text">Soothify</span>
+    </a>
+    <div class="nav-links">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="considering-therapy.html">Considering Therapy</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="book-appointment.html" class="appointment-btn"><i class="fa-solid fa-phone" style="margin-right: 5px;"></i> Book an Appointment </a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container" id="container">
+    <!-- Sign-Up Form (Only for Clients) -->
+    <div class="sign-up">
+      <form method="POST" action="../../backend/php/register.php">
+        <h1>Create Account (Client)</h1>
+        <div class="icons">
+          <a href="#" class="icon"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" class="icon"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="icon"><i class="fa-brands fa-google"></i></a>
+          <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+        </div>
+        <span>or use email for registration</span>
+
+        <input type="text" name="name" placeholder="Name" required> <!-- Added Name Field -->
+        <input type="email" name="email" placeholder="Email" required>
+        <div class="password-container">
+          <input type="password" name="password" id="signup-password" placeholder="Password" required>
+          <span class="toggle-password" onclick="togglePassword('signup-password')">
+            <i class="fas fa-eye"></i>
+          </span>
+        </div>
+        <input type="hidden" name="role" value="client">
+        <button type="submit" name="signup">Sign Up</button>
+      </form>
+    </div>
+
+    <!-- Sign-In Form (For Client/Therapist/Admin) -->
+    <div class="sign-in">
+      <form method="POST" action="../../backend/php/register.php">
+        <h1>Sign In</h1>
+        <div class="icons">
+          <a href="#" class="icon"><i class="fa-brands fa-facebook"></i></a>
+          <a href="#" class="icon"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="icon"><i class="fa-brands fa-google"></i></a>
+          <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+        </div>
+        <span>or use email and password</span>
+        <input type="hidden" name="action" value="signin">
+        <select name="role" required>
+          <option value="client">Client</option>
+          <option value="admin">Admin</option>
+        </select>
+        <!-- Depending on the role, change the input type -->
+        <div id="role-input">
+          <input type="text" name="id" placeholder="ID" required>
+          <input type="password" name="password" id="signin-password" placeholder="Password" required>
+          <span class="toggle-password" onclick="togglePassword('signin-password')">
+            <i class="fas fa-eye"></i> <!-- Cool eye icon -->
+          </span>
+        </div>
+        <a href="forgot-password.html" class="forgot-password">Forgot password?</a>
+        <button type="submit" name="signin">Sign In</button>
+      </form>
+    </div>
+
+    <!-- Toggle Container -->
+    <div class="toogle-container">
+      <div class="toogle">
+        <div class="toogle-panel toogle-left">
+          <h1>Welcome Back!</h1>
+          <p>If you already have an account</p>
+          <button type="button" id="login">Sign In</button>
+        </div>
+        <div class="toogle-panel toogle-right">
+          <h1>Hello, New User!</h1>
+          <p>If you don't have an account</p>
+          <button type="button" id="register">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const container = document.getElementById("container");
+    const registerbtn = document.getElementById("register");
+    const loginbtn = document.getElementById("login");
+    const signupForm = document.querySelector(".sign-up form");
+    const signinForm = document.querySelector(".sign-in form");
+
+    registerbtn.addEventListener("click", () => {
+      container.classList.add("active");
+      signupForm.reset();
+    });
+
+    loginbtn.addEventListener("click", () => {
+      container.classList.remove("active");
+      signinForm.reset();
+    });
+
+    function togglePassword(fieldId) {
+      const passwordField = document.getElementById(fieldId);
+      const eyeIcon = passwordField.nextElementSibling.querySelector("i");
+
+      if (passwordField.type === "password") {
+        passwordField.type = "text";
+        eyeIcon.classList.remove("fa-eye");
+        eyeIcon.classList.add("fa-eye-slash");
+      } else {
+        passwordField.type = "password";
+        eyeIcon.classList.remove("fa-eye-slash");
+        eyeIcon.classList.add("fa-eye");
+      }
+    }
+
+    document.querySelector('select[name="role"]').addEventListener('change', function() {
+      var role = this.value;
+      var roleInput = document.getElementById('role-input');
+      
+      if (role === 'client') {
+        // Change to email input for client
+        roleInput.innerHTML = `        
+          <input type="email" name="email" placeholder="Email" required>
+          <input type="password" name="password" id="signin-password" placeholder="Password" required>
+          <span class="toggle-password" onclick="togglePassword('signin-password')">
+            <i class="fas fa-eye"></i> <!-- Cool eye icon -->
+          </span>
+        `;
+      } else {
+        // Predefined ID and password for therapist and admin
+        roleInput.innerHTML = `
+          <input type="text" name="id" placeholder="ID" required>
+          <input type="password" name="password" id="signin-password" placeholder="Password" required>
+          <span class="toggle-password" onclick="togglePassword('signin-password')">
+            <i class="fas fa-eye"></i> <!-- Cool eye icon -->
+          </span>
+        `;
+      }
+    });
+  </script>
+</body>
+
+</html>
