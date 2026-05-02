@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 🌿 Soothify – Online Therapy & Mental Wellness Platform
 
 Soothify is a full-stack web application designed to provide accessible and personalized mental health support. The platform connects users with therapy services while helping them track their emotional well-being through interactive tools.
@@ -46,4 +45,3 @@ The goal of Soothify is to make mental health support more engaging, structured,
 =======
 # Soothify
 Soothify is a full-stack web application designed to provide accessible and personalized mental health support. The platform connects users with therapy services while helping them track their emotional well-being through interactive tools.
->>>>>>> f48aa9162cd27a848136f7470c1e0b17c2bb9002
